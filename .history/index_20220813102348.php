@@ -17,7 +17,7 @@
     <?php
         include "sql.php";
         $task = $_POST["task"];
-        if ($task !== ''){
+        if (isset($task)){
             insert_data($server, $user, $pass, $dbname, $task);
         }
     ?>

@@ -15,11 +15,9 @@
     </form>
 
     <?php
-        include "sql.php";
-        $task = $_POST["task"];
-        if ($task !== ''){
-            insert_data($server, $user, $pass, $dbname, $task);
-        }
+        $task = $_POST['task'];
+        include_once "sql.php";
+        insert_data($server, $user, $pass, $dbname, $task)
     ?>
 
 </body>

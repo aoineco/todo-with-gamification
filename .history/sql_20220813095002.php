@@ -1,16 +1,17 @@
 <?php
-$server = "localhost";
-$user = "root";
-$pass = 'root';
+$servername = "localhost";
+$username = "username";
+$password = "";
 $dbname = "gamification";
+$task = $_POST('task');
 
-
-function insert_data($server, $user, $pass, $dbname, $task){
+function insert_data(){
     try {
-        $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO todo_list (task_name) VALUES ('$task')";
+        $sql = "INSERT INTO ToDoList (task)
+        VALUES ($task)";
         // use exec() because no results are returned
         $conn->exec($sql);
         echo "New record created successfully";
