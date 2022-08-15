@@ -8,13 +8,6 @@ $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-class TableRows extends RecursiveIteratorIterator
-{
-    function __construct($it)
-    {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
-}
 function insert_data($task){
     try {
         $sql = "INSERT INTO todo_list (task_name) VALUES ('$task')";

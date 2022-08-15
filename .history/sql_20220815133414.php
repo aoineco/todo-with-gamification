@@ -8,13 +8,6 @@ $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-class TableRows extends RecursiveIteratorIterator
-{
-    function __construct($it)
-    {
-        parent::__construct($it, self::LEAVES_ONLY);
-    }
-}
 function insert_data($task){
     try {
         $sql = "INSERT INTO todo_list (task_name) VALUES ('$task')";
@@ -27,18 +20,12 @@ function insert_data($task){
 $conn = null;
 }
 
-function display_data()
+function slectdata()
 {
     try {
-        $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests");
-        $stmt->execute();
-
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
-            echo $v;
-        }
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+        $conn
+    } catch (\Throwable $th) {
+        //throw $th;
     }
 }
 ?>
