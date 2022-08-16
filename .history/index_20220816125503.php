@@ -18,10 +18,10 @@
         include "sql.php";
         $task = $_POST["task"];
         if ($task !== ''){
-            insert_data($task, $conn);
+            insert_data($task);
         }
 
-        display_data($conn);
+        display_data();
     ?>
 
 </body>

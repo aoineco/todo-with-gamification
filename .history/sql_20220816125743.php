@@ -35,7 +35,7 @@ function display_data($conn)
 
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
-            echo $v."<br>";
+            echo $v;
         }
     } catch (PDOException $e) {
         echo $e->getMessage();

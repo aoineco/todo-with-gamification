@@ -30,12 +30,12 @@ $conn = null;
 function display_data($conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT * FROM todo_list");
+        $stmt = $conn->prepare("SELECT id, firstname, lastname FROM MyGuests");
         $stmt->execute();
 
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
-            echo $v."<br>";
+            echo $v;
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
