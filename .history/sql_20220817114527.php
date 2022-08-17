@@ -47,7 +47,7 @@ function display_data($conn)
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
             echo $v;
-            echo '<input type="button">aiu';
+            echo '<input type="button">';
         }
     } catch (PDOException $e) {
         echo $e->getMessage();

@@ -27,17 +27,6 @@ function insert_data($task, $conn){
 $conn = null;
 }
 
-function delete_data($conn)
-{
-    try {
-        $sql = 'DELETE FROM todo_list WHERE id=$id';
-        $conn->exec($sql);
-        echo "Record deleted successfully";
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-}
-
 function display_data($conn)
 {
     try {
@@ -47,7 +36,7 @@ function display_data($conn)
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
             echo $v;
-            echo '<input type="button">aiu';
+            echo '<input type="button">';
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
