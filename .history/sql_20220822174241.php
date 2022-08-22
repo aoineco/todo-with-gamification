@@ -47,9 +47,7 @@ function display_data($conn)
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
             echo $v;
-            echo '<form action="" method="post">';
             echo '<input type="button">削除';
-            echo '</form>'
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
