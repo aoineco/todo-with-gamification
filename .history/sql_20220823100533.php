@@ -30,7 +30,7 @@ $conn = null;
 function delete_data($conn)
 {
     try {
-        $sql = 'DELETE FROM todo_list WHERE id=id';
+        $sql = 'DELETE FROM todo_list WHERE id=$id';
         $conn->exec($sql);
         echo "Record deleted successfully";
     } catch (PDOException $e) {
@@ -51,7 +51,6 @@ function display_data($conn)
             echo '<form action=$_SERVER["PHP_SELF"] method="post">';
             echo '<input type="button", id=$num>削除';
             echo '</form>';
-            $num += 1;
         }
     } catch (PDOException $e) {
         echo $e->getMessage();
