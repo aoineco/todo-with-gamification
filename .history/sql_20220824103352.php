@@ -39,8 +39,8 @@ function display_data($conn)
         $num = 0;
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
             echo $v;
-            echo '<form , method="GET">';
-            echo '<a href="./delete.php?id=$num">削除</a>';
+            echo '<form action="index.php", method="post">';
+            echo '<input type="button", value="削除", name="delete">';
             echo '</form>';
             $num += 1;
         }

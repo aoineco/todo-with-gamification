@@ -22,6 +22,9 @@
         }
         display_data($conn);
 
+        if (isset($_POST["delete"])){
+            delete_data($conn)
+        }
 
     ?>
 

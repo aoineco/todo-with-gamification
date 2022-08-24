@@ -27,7 +27,17 @@ function insert_data($task, $conn){
 $conn = null;
 }
 
-
+function delete_data($conn)
+{
+    $id = $_POST["id"];
+    try {
+        $sql = 'DELETE FROM todo_list WHERE id="$id"';
+        $conn->exec($sql);
+        echo "Record deleted successfully";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
 
 function display_data($conn)
 {
@@ -39,8 +49,9 @@ function display_data($conn)
         $num = 0;
         foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
             echo $v;
-            echo '<form , method="GET">';
-            echo '<a href="./delete.php?id=$num">削除</a>';
+            echo '<form action="index.php", method="post">';
+            echo '<input type="hidden", name="id", value="$num">';
+            echo '<input type="button", value="削除", name="delete">';
             echo '</form>';
             $num += 1;
         }
