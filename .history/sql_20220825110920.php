@@ -7,7 +7,15 @@ $dbname = "gamification";
 $conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+echo "<table style='border: solid 1px black;'>";
+echo "<tr><th>Id</th><<th>task_name</th></tr>";
+class TableRows extends RecursiveIteratorIterator
+{
+    function __construct($it)
+    {
+        parent::__construct($it, self::LEAVES_ONLY);
+    }
+}
 function insert_data($task, $conn){
     try {
         $sql = "INSERT INTO todo_list (task_name) VALUES ('$task')";
@@ -38,16 +46,6 @@ function display_data($conn)
 {
 
     try {
-        echo "<table style='border: solid 1px black;'>";
-        echo "<tr><th>Id</th><<th>task_name</th></tr>";
-        class TableRows extends RecursiveIteratorIterator
-        {
-            function __construct($it)
-            {
-                parent::__construct($it, self::LEAVES_ONLY);
-            }
-        }
-
         $stmt = $conn->prepare("SELECT id, task_name FROM todo_list");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

@@ -20,7 +20,9 @@
         insert_data($task, $conn);
     }
 
-
+    if (isset($_POST['delete'])) {
+        delete($conn);
+    }
 
         </table>
     </form>

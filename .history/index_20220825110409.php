@@ -13,17 +13,21 @@
         <input type="text" name="task">
         <input type="submit">
     </form>
+
     <?php
-    include "sql.php";
-    $task = $_POST["task"];
-    if (isset($task)) {
-        insert_data($task, $conn);
-    }
+        include "sql.php";
+        $task = $_POST["task"];
+        if (isset($task)){
+            insert_data($task, $conn);
+        }
 
+        display_data($conn);
 
+        if(isset($_POST['delete'])){
+            delete($conn);
+        }
 
-        </table>
-    </form>
+    ?>
 
 </body>
 
