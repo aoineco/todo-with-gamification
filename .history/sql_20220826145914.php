@@ -38,8 +38,10 @@ function display_data($conn)
 {
 
     try {
-        $stmt = $conn->query('SELECT * FROM todo_list');
+        $stmt = $dbh->query('SELECT * FROM todo_list');
+
         $result = 0;
+
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         echo "<table>\n";
@@ -48,8 +50,8 @@ function display_data($conn)
         echo "</tr>\n";
         foreach ($result as $user) {
             echo "<tr>\n";
-            //echo "<td>" . $user["id"] . "</td>\n";
-            echo "<td>" . $user["task_name"] . "</td>\n";
+            echo "<td>" . $user["name"] . "</td>\n";
+            echo "<td>" . $user["message"] . "</td>\n";
             echo "<td>\n";
             echo "<a href=delete.php?id=" . $user["id"] . ">削除</a>\n";
             echo "</td>\n";

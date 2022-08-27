@@ -19,8 +19,6 @@
     if (isset($task)) {
         insert_data($task, $conn);
     }
-
-    display_data($conn);
     ?>
 </body>
 

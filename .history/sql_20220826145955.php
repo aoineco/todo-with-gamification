@@ -48,7 +48,7 @@ function display_data($conn)
         echo "</tr>\n";
         foreach ($result as $user) {
             echo "<tr>\n";
-            //echo "<td>" . $user["id"] . "</td>\n";
+            echo "<td>" . $user["id"] . "</td>\n";
             echo "<td>" . $user["task_name"] . "</td>\n";
             echo "<td>\n";
             echo "<a href=delete.php?id=" . $user["id"] . ">削除</a>\n";
