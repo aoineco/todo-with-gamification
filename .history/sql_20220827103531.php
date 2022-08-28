@@ -42,7 +42,7 @@ function display_data($conn)
         $result = 0;
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        echo '<table border="1">';
+        echo '<table border="1">\n';
         echo "<tr>\n";
         echo "<th>task</th>\n";
         echo "</tr>\n";

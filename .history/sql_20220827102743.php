@@ -42,7 +42,7 @@ function display_data($conn)
         $result = 0;
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        echo '<table border="1">';
+        echo '<table border="1">\n';
         echo "<tr>\n";
         echo "<th>task</th>\n";
         echo "</tr>\n";
@@ -52,7 +52,6 @@ function display_data($conn)
             echo "<td>" . $user["task_name"] . "</td>\n";
             echo "<td>\n";
             echo "<a href=delete.php?id=" . $user["id"] . ">削除</a>\n";
-            echo "<a href=update.php?id=" . $user["id"] . ">編集</a>\n";
             echo "</td>\n";
             echo "</tr>\n";
         }
