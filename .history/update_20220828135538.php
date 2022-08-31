@@ -17,12 +17,12 @@
         $stmt->bindValue(':id', $id);
         $stmt->execute();
         $data = $stmt->fetch();
-        $data =  $data["task_name"];
+        var_dump($data);
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
     ?>
-    <input type="text" name="modify" value=<?php echo $data; ?>>
+    <input type="text" name="modify" value=$stmt>
 
 </body>
 </html>

@@ -16,13 +16,14 @@
         $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
         $stmt->bindValue(':id', $id);
         $stmt->execute();
-        $data = $stmt->fetch();
-        $data =  $data["task_name"];
+        foreach ($stmt as $row) {
+            var_dump($row);
+        }
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
     ?>
-    <input type="text" name="modify" value=<?php echo $data; ?>>
+    <input type="text" name="modify" value=$data>
 
 </body>
 </html>

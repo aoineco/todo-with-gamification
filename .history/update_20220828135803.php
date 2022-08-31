@@ -22,7 +22,7 @@
         echo "Error: " . $e->getMessage();
     }
     ?>
-    <input type="text" name="modify" value=<?php echo $data; ?>>
+    <input type="text" name="modify" value=$data>
 
 </body>
 </html>
