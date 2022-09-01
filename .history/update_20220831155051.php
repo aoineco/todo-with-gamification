@@ -24,7 +24,7 @@
     }
 
     if(isset($_POST['modify'])){
-        update($conn);
+
     }
 
 

@@ -23,13 +23,10 @@
         echo "Error: " . $e->getMessage();
     }
 
-    if(isset($_POST['modify'])){
-        update($conn);
-    }
 
 
     ?>
-    <form method="post">
+    <form action="" method="post"></form>
         <input type="text" name="modify" value=<?php echo $data; ?>>
         <input type="submit" value="完了">
     </form>

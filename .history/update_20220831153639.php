@@ -12,7 +12,6 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-    $name = $_POST['modify'];
     try {
         $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
         $stmt->bindValue(':id', $id);
@@ -22,16 +21,10 @@
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
-
-    if(isset($_POST['modify'])){
-        update($conn);
-    }
-
-
     ?>
-    <form method="post">
+    <form action="" method="post"></form>
         <input type="text" name="modify" value=<?php echo $data; ?>>
-        <input type="submit" value="完了">
+        <input type="submit" value="">
     </form>
 
 </body>
