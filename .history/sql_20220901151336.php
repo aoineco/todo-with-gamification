@@ -20,7 +20,23 @@ function insert_data($task, $conn){
 $conn = null;
 }
 
-function display_data($conn){
+function delete($conn)
+{
+
+    $id = $_POST["delete"];
+    try {
+        $sql = 'DELETE FROM todo_list WHERE id=$id';
+        $conn->exec($sql);
+        echo "Record deleted successfully";
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
+
+function display_data($conn)
+{
+
     try {
         $stmt = $conn->query('SELECT * FROM todo_list');
         $result = 0;
@@ -47,10 +63,10 @@ function display_data($conn){
     }
 }
 
-function update($conn, $id, $task_name)
+function update($conn)
 {
-    $stmt = $conn->prepare('UPDATE todo_list SET task_name=$task_name WHERE id=:id');
-    $stmt->execute(array(':id' => $id));
+    $stmt = $conn->prepare('UPDATE todo_list SET task_name=? WHERE id=?"');
+    $stmt->execute(array(':id' => $_POST["modify"]));
 
     try{
     $stmt->execute();

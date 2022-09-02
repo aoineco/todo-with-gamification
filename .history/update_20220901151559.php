@@ -25,7 +25,6 @@
 
     if(isset($_POST['modify'])){
         update($conn, $id, $name);
-        header('Location:http://localhost:8888/gamification/');
     }
 
 
