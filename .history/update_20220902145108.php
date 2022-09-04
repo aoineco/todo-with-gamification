@@ -12,17 +12,14 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-
-    if (isset($_GET["id"])) {
-        try {
-            $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
-            $stmt->bindValue(':id', $id);
-            $stmt->execute();
-            $data = $stmt->fetch();
-            $data =  $data["task_name"];
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
+    try {
+        $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $data = $stmt->fetch();
+        $data =  $data["task_name"];
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 
     if (isset($_POST['modify'])) {

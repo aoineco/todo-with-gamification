@@ -54,7 +54,7 @@ function update($conn, $id, $task_name)
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->bindParam(':task_name', $task_name, PDO::PARAM_STR_CHAR);
     $res = $stmt->execute();
-    header('Location:http://localhost:8888/gamification/index.php');
+    header('Location:http://localhost:8888/gamification/');
     } catch(PDOException $e) {
     echo $res . "<br>" . $e->getMessage();
     }

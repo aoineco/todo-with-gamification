@@ -50,13 +50,12 @@ function display_data($conn){
 function update($conn, $id, $task_name)
 {
     try{
-    $stmt = $conn->prepare("UPDATE todo_list SET task_name=:task_name WHERE id=:id");
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->bindParam(':task_name', $task_name, PDO::PARAM_STR_CHAR);
-    $res = $stmt->execute();
-    header('Location:http://localhost:8888/gamification/index.php');
+    $stmt = $conn->prepare("UPDATE todo_list SET task_name='$task_name' WHERE id=:id");
+    $stmt->execute(array(':id' => $id));
+    $stmt->execute();
+    header('Location:http://localhost:8888/gamification/');
     } catch(PDOException $e) {
-    echo $res . "<br>" . $e->getMessage();
+    echo $stmt . "<br>" . $e->getMessage();
     }
 
 }

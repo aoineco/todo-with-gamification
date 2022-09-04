@@ -12,21 +12,20 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-
-    if (isset($_GET["id"])) {
-        try {
-            $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
-            $stmt->bindValue(':id', $id);
-            $stmt->execute();
-            $data = $stmt->fetch();
-            $data =  $data["task_name"];
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
+    $name = $_POST['modify'];
+    try {
+        $stmt = $conn->prepare("SELECT task_name FROM todo_list WHERE id = :id");
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $data = $stmt->fetch();
+        $data =  $data["task_name"];
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
     }
 
-    if (isset($_POST['modify'])) {
+    if(isset($_POST['modify'])){
         update($conn, $id, $_POST['modify']);
+        header('Location:http://localhost:8888/gamification/');
     }
 
 
@@ -36,6 +35,5 @@
         <input type="submit" value="完了">
     </form>
 
-    </body>
-
+</body>
 </html>
