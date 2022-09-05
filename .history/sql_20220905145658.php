@@ -58,7 +58,7 @@ function update($conn, $id, $task_name)
     $stmt = $conn->prepare('UPDATE todo_list SET task_name=:task_name WHERE id=:id');
     $stmt->execute(array(':task_name'=>$task_name, ':id' => $id));
     var_dump($stmt);
-    header('Location:http://localhost:8888/gamification/');
+    //header('Location:http://localhost:8888/gamification/');
     } catch(PDOException $e) {
     echo $stmt . "<br>" . $e->getMessage();
     }

@@ -12,7 +12,6 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-    echo $id;
 
     if (isset($_GET["id"])) {
         try {
@@ -25,21 +24,17 @@
             echo "Error: " . $e->getMessage();
         }
     }
-    ?>
 
-    <form action="update.php" method="get">
-        <input type="text" name='modify' value=<?php echo $data; ?>>
-        <input type="hidden" name="id" value=<?php echo $id; ?>>
-        <input type="submit" value="完了">
-    </form>
-
-    <?php
-    if (isset($_GET['modify'])) {
-        update($conn, $id, $_GET['modify']);
+    if (isset($_POST['modify'])) {
+        update($conn, $id, $_POST['task']);
     }
+
+
     ?>
-
-
+    <form method="post" action="update.php">
+        <input type="text" name='task' value=<?php echo $data; ?>>
+        <input type="submit" name='modify' value="完了">
+    </form>
 
     </body>
 

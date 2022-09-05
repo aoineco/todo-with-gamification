@@ -12,7 +12,6 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-    echo $id;
 
     if (isset($_GET["id"])) {
         try {
@@ -25,17 +24,29 @@
             echo "Error: " . $e->getMessage();
         }
     }
-    ?>
+?>
 
-    <form action="update.php" method="get">
+    <form method="post" action="update.php">
         <input type="text" name='modify' value=<?php echo $data; ?>>
-        <input type="hidden" name="id" value=<?php echo $id; ?>>
         <input type="submit" value="完了">
     </form>
 
-    <?php
-    if (isset($_GET['modify'])) {
-        update($conn, $id, $_GET['modify']);
+<?php
+    var_dump($_POST['modify']);
+    if (isset($_POST['modify'])) {
+        //update($conn, $id, $_POST['modify']);
+
+        try {
+            $stmt = $conn->prepare("UPDATE todo_list SET task_name=:task_name WHERE id=:id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':task_name', $_POST['modify'], PDO::PARAM_STR_CHAR);
+            $res = $stmt->execute();
+            var_dump($res);
+            echo 'success';
+            header('Location:http://localhost:8888/gamification/index.php');
+        } catch (PDOException $e) {
+            echo $res . "<br>" . $e->getMessage();
+        }
     }
     ?>
 

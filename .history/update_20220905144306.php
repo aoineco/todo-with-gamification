@@ -12,7 +12,6 @@
     <?php
     include "sql.php";
     $id = $_GET["id"];
-    echo $id;
 
     if (isset($_GET["id"])) {
         try {
@@ -27,15 +26,14 @@
     }
     ?>
 
-    <form action="update.php" method="get">
+    <form action="update.php" method="POST">
         <input type="text" name='modify' value=<?php echo $data; ?>>
-        <input type="hidden" name="id" value=<?php echo $id; ?>>
         <input type="submit" value="完了">
     </form>
 
     <?php
     if (isset($_GET['modify'])) {
-        update($conn, $id, $_GET['modify']);
+        update($conn, $id, $_POST['modify']);
     }
     ?>
 
