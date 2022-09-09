@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var carr = [{ f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }, { f: false, v: 0, obj: null }];
+        var nowStatus = false;
+        window.addEventListener("load", function () {
+            for (let i = 0; i < carr.length; i++) {
+                carr[i].obj = document.getElementById("c" + (i + 1));
+            }
+            setInterval(interval, 20);//スロットの回転速度
+        });
+        function interval() {
+            if (nowStatus) {
+                for (let i = 0; i < carr.length; i++) {
+                    if (carr[i].f) {
+                        carr[i].v = (carr[i].v + 1) % 10;
+                        carr[i].obj.innerHTML = carr[i].v;
+                    }
+                }
+            }
+        }
+        function start() {
+            if (nowStatus) { return; }//一度ストップした数字
+            nowStatus = true;
+            for (let i = 0; i < carr.length; i++) {
+                carr[i].f = true;
+            }
+        }
+        function stop(c) {
+            if (nowStatus) {
+                carr[c].f = false;
+                if (!carr[0].f && !carr[1].f && !carr[2].f) {
+                    nowStatus = false;
+                    if (carr[0].v == carr[1].v && carr[1].v == carr[2].v) {
+                        document.getElementById("char").innerHTML = "あたり";
+                    } else {
+                        document.getElementById("char").innerHTML = "はずれ";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .w33 {
+            width: 33%;
+            text-align: center;
+        }
+
+        .w100 {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <div style="display:flex;width:300px;flex-wrap:wrap;">
+        <div id="c1" class="w33">0</div>
+        <div id="c2" class="w33">0</div>
+        <div id="c3" class="w33">0</div>
+        <div class="w33"><button onclick="stop(0)">stop</button></div>
+        <div class="w33"><button onclick="stop(1)">stop</button></div>
+        <div class="w33"><button onclick="stop(2)">stop</button></div>
+        <div class="w100"><button onclick="start()">start</button></div>
+    </div>
+    <div id="char"></div>
+</body>
+</html>
