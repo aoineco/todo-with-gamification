@@ -21,7 +21,7 @@
     'dice6.png']; // 画像の配列
     const dice_img = document.getElementById("dice");
     const diceBtn = document.getElementById("diceBtn");
-    dice_img.src = diceArry[0];
+    dice.src = diceArry[0];
 
     diceBtn.addEventListener("click", function(){
     if(diceBtn.textContent=='start'){
@@ -32,7 +32,7 @@
             }, 100);
     }else{
         diceBtn.textContent = 'start';
-        clearInterval(timerId);
+        clearInterval(timerId); // ランダム表示の停止
     }
     })
     </script>

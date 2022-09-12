@@ -19,23 +19,22 @@
     'dice4.png',
     'dice5.png',
     'dice6.png']; // 画像の配列
-    const dice_img = document.getElementById("dice");
+    const dice = document.getElementById("dice"); // ここに画像を表示
     const diceBtn = document.getElementById("diceBtn");
-    dice_img.src = diceArry[0];
+    dice.src = diceArry[0];
 
     diceBtn.addEventListener("click", function(){
     if(diceBtn.textContent=='start'){
         diceBtn.textContent = 'stop';
         timerId = setInterval( () => {
             let diceIndex = Math.floor(Math.random() * diceArry.length) ;
-            dice_img.src = diceArry[diceIndex];
-            }, 100);
+            dice.src = diceArry[diceIndex];
+            }, 200); // ランダム表示
     }else{
-        diceBtn.textContent = 'start';
-        clearInterval(timerId);
+        diceBtn.textContent = 'さいころを振る'; // ボタンの表示を変える
+        clearInterval(timerId); // ランダム表示の停止
     }
     })
     </script>
-    <a href="http://localhost:8888/gamification/random_reward/">home</a>
 </body>
 </html>
