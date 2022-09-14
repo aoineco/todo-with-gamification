@@ -35,7 +35,6 @@
     <a href="http://localhost:8888/gamification/random_reward/slot.html">スロットゲーム</a>
     <br>
     <a href="http://localhost:8888/gamification/random_reward/dice.html">dice game</a>
-    <br>
     <a href="http://localhost:8888/gamification/random_reward/coin_flip.html">coin flip game</a>
 
 </body>
