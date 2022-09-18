@@ -13,10 +13,14 @@
         var test = document.getElementById("test")
         var i = 0
         var myfun = setInterval(function () {
-            test.innerHTML = 10 - i;
+            test.innerHTML = 100 - i;
+            if(i == 0){
+                document.write('finish!!')
+                exit();
+            }
             i++;
         }, 1000)
-
+        //document.write(myfun)
 
 
     </script>
