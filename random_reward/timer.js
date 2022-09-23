@@ -62,12 +62,6 @@ function _timer(callback) {
         return mode;
     }
 
-    // This methode return the status of the timer running (1) or stoped (1)
-    this.getStatus
-    {
-        return status;
-    }
-
     // This methode will render the time variable to hour:minute:second format
     function generateTime() {
         var second = time % 60;
@@ -99,5 +93,4 @@ $(document).ready(function (e) {
             }
         );
     timer.reset(0);
-    timer.mode(0);
 });
