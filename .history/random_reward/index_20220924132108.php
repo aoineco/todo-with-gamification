@@ -38,7 +38,7 @@
     <br>
     <a href="http://localhost:8888/gamification/random_reward/coin_flip.html">coin flip game</a>
     <br>
-    <a href="http://localhost:8888/gamification/random_reward/timer.html">timer</a>
+    <a href="http://localhost:8888/gamification/random_reward/timer.html">coin flip game</a>
 
 </body>
 

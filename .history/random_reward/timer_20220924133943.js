@@ -84,6 +84,7 @@ function _timer(callback) {
     }
 }
 
+
 // example use
 var timer;
 
@@ -99,4 +100,5 @@ $(document).ready(function (e) {
         );
     timer.reset(0);
     timer.mode(0);
+
 });
