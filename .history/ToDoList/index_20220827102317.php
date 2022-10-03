@@ -9,12 +9,6 @@
 </head>
 
 <body>
-
-    <div id="progress">
-        <div id="bar">10%</div>
-    </div>
-
-
     <form action="index.php" method="post">
         <input type="text" name="task">
         <input type="submit">
