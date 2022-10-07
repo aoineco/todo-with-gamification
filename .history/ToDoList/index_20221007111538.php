@@ -23,7 +23,6 @@
         <input type="submit">
     </form>
     <br>
-    <br>
     <?php
     include "sql.php";
     $task = $_POST["task"];
