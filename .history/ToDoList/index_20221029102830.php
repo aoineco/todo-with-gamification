@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="todo.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="todo.js"></script>
+    <script type="text/javascript" src="todo.js"></script>
 </head>
 
 <body>
@@ -16,9 +15,9 @@
         <div id="bar">10%</div>
     </div>
     <br>
-    <button id="move" onclick="move()">click here</button>
+    <button onclick="move()">click here</button>
 
-    <!-- todolist PHP -->
+<!-- todolist PHP -->
     <form action="index.php" method="post">
         <input type="text" name="task">
         <input type="submit">
@@ -35,7 +34,7 @@
     ?>
 
 
-    <!-- todolist JS -->
+<!-- todolist JS -->
     <div id="myDIV" class="header">
         <h2 style="margin:5px">My To Do List</h2>
         <input type="text" id="myInput" placeholder="Title...">
@@ -106,8 +105,6 @@
                 }
             }
         }
-
-        $("li").on('click', move())
     </script>
 
 </body>

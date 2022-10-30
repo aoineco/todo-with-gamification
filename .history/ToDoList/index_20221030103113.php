@@ -108,6 +108,7 @@
         }
 
         $("li").on('click', move())
+        $("button #move").on('click', move())
     </script>
 
 </body>

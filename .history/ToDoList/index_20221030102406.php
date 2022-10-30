@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="todo.css">
+    <script type="text/javascript" src="todo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="todo.js"></script>
+
 </head>
 
 <body>
@@ -107,7 +108,10 @@
             }
         }
 
-        $("li").on('click', move())
+        $("li").on('click', function() {
+            document.write("clicked")
+        })
+        $("button #move").on('click', move())
     </script>
 
 </body>
