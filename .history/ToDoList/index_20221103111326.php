@@ -53,9 +53,7 @@
     </ul>
 
     <script>
-        $('li').on('click', function () {
-            move()
-        })
+        $('li').on('click', move())
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {

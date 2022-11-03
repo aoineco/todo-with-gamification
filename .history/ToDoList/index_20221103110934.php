@@ -45,7 +45,7 @@
 
     <ul id="myUL">
         <li>Hit the gym</li>
-        <li >Pay bills</li>
+        <li class="checked">Pay bills</li>
         <li>Meet George</li>
         <li>Buy eggs</li>
         <li>Read a book</li>
@@ -53,9 +53,7 @@
     </ul>
 
     <script>
-        $('li').on('click', function () {
-            move()
-        })
+        $("li").on('click', move())
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {

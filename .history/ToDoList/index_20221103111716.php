@@ -54,7 +54,7 @@
 
     <script>
         $('li').on('click', function () {
-            move()
+            alert("クリックされました。")
         })
         var myNodelist = document.getElementsByTagName("LI");
         var i;

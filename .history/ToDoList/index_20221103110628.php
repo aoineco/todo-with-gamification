@@ -8,11 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="todo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="todo.js"></script>
+
 </head>
 
 <body>
-
     <div id="progress">
         <div id="bar">10%</div>
     </div>
@@ -45,7 +44,7 @@
 
     <ul id="myUL">
         <li>Hit the gym</li>
-        <li >Pay bills</li>
+        <li class="checked">Pay bills</li>
         <li>Meet George</li>
         <li>Buy eggs</li>
         <li>Read a book</li>
@@ -53,9 +52,6 @@
     </ul>
 
     <script>
-        $('li').on('click', function () {
-            move()
-        })
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
@@ -110,7 +106,10 @@
                 }
             }
         }
+
+        $("li").on('click', move())
     </script>
+    <script src="todo.js"></script>
 
 </body>
 
