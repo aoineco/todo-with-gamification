@@ -7,6 +7,7 @@ function move() {
         var id = setInterval(frame, 10);
         function frame() {
             if (width >= 100) {
+                alert("level up!")
                 clearInterval(id);
                 k = 0;
             } else {
