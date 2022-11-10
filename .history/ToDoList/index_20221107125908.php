@@ -7,17 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="todo.css">
-    <script type="text/javascript" src="todo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="todo.js"></script>
 </head>
 
 <body>
+
     <div id="progress">
         <div id="bar">10%</div>
     </div>
     <br>
-    <button onclick="move()">click here</button>
+    <button id="move" onclick="move()">click here</button>
 
-
+    <!-- todolist PHP -->
     <form action="index.php" method="post">
         <input type="text" name="task">
         <input type="submit">
@@ -33,6 +35,8 @@
     display_data($conn);
     ?>
 
+
+    <!-- todolist JS -->
     <div id="myDIV" class="header">
         <h2 style="margin:5px">My To Do List</h2>
         <input type="text" id="myInput" placeholder="Title...">
@@ -40,15 +44,14 @@
     </div>
 
     <ul id="myUL">
-        <li>Hit the gym</li>
-        <li class="checked">Pay bills</li>
-        <li>Meet George</li>
-        <li>Buy eggs</li>
-        <li>Read a book</li>
-        <li>Organize office</li>
     </ul>
 
-    <!-- <script>
+    <script>
+
+
+        $('li').on('click', function() {
+            move()
+        })
         var myNodelist = document.getElementsByTagName("LI");
         var i;
         for (i = 0; i < myNodelist.length; i++) {
@@ -59,6 +62,7 @@
             myNodelist[i].appendChild(span);
         }
 
+        // Click on a close button to hide the current list item
         var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++) {
@@ -68,13 +72,20 @@
             }
         }
 
+        // Add a "checked" symbol when clicking on a list item
         var list = document.querySelector('ul');
+        var li = list.getElementsByTagName("li");
         list.addEventListener('click', function(ev) {
             if (ev.target.tagName === 'LI') {
                 ev.target.classList.toggle('checked');
+
+                if (li.classList ="checked") {
+                    alert("checked")
+                }
             }
         }, false);
 
+        // Create a new list item when clicking on the "Add" button
         function newElement() {
             var li = document.createElement("li");
             var inputValue = document.getElementById("myInput").value;
@@ -100,8 +111,7 @@
                 }
             }
         }
-    </script> -->
-
+    </script>
 
 </body>
 
