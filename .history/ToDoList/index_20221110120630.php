@@ -45,7 +45,6 @@
     </ul>
 
     <script>
-        var list = [];
         $('li').on('click', function() {
             move()
         })
@@ -74,12 +73,11 @@
             if (ev.target.tagName === 'LI') {
                 ev.target.classList.toggle('checked');
 
-                if (li.classList = "checked") {
+                if (li.classList ="checked") {
                     alert("checked")
                 }
             }
         }, false);
-
 
         function newElement() {
             var li = document.createElement("li");
@@ -90,7 +88,6 @@
                 alert("You must write something!");
             } else {
                 document.getElementById("myUL").appendChild(li);
-                list.push(inputValue);
             }
             document.getElementById("myInput").value = "";
 

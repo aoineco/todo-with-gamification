@@ -90,7 +90,7 @@
                 alert("You must write something!");
             } else {
                 document.getElementById("myUL").appendChild(li);
-                list.push(inputValue);
+                list.push(li);
             }
             document.getElementById("myInput").value = "";
 
@@ -107,6 +107,8 @@
                 }
             }
         }
+        document.write(list);
+        document.write('aiueo');
     </script>
 
 </body>

@@ -107,6 +107,8 @@
                 }
             }
         }
+        document.write(list[0]);
+        document.write('aiueo');
     </script>
 
 </body>

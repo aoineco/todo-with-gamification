@@ -90,7 +90,6 @@
                 alert("You must write something!");
             } else {
                 document.getElementById("myUL").appendChild(li);
-                list.push(inputValue);
             }
             document.getElementById("myInput").value = "";
 

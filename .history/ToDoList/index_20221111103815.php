@@ -45,7 +45,6 @@
     </ul>
 
     <script>
-        var list = [];
         $('li').on('click', function() {
             move()
         })
@@ -74,13 +73,13 @@
             if (ev.target.tagName === 'LI') {
                 ev.target.classList.toggle('checked');
 
-                if (li.classList = "checked") {
+                if (li.classList ="checked") {
                     alert("checked")
                 }
             }
         }, false);
 
-
+        var list = [];
         function newElement() {
             var li = document.createElement("li");
             var inputValue = document.getElementById("myInput").value;
@@ -107,6 +106,7 @@
                 }
             }
         }
+        documet.log(list);
     </script>
 
 </body>

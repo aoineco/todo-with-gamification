@@ -91,6 +91,7 @@
             } else {
                 document.getElementById("myUL").appendChild(li);
                 list.push(inputValue);
+                document.write(list[0]);
             }
             document.getElementById("myInput").value = "";
 
